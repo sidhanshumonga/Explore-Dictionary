@@ -70,7 +70,7 @@ app.controller('testcontroller',function($scope, $http,$timeout, $window){
 						
 			// printing current searching domain
 
-						document.getElementById("loading").innerHTML ="<img src='loading.gif'><p id='loadtext'><span>" +endPointName+"</span></p>";
+						document.getElementById("loading").innerHTML ="<p id='loadtext'>" +endPointName+"</p>";
 				
 						$.getJSON("../../"+endPointName+"/"+uid+".json?paging=false", function (response){	
 								$timeout(function(){

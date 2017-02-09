@@ -34,6 +34,7 @@
 	width:100%;
 }
 #app {
+	border-radius: 25px 25px 0px 0px;
 	position:absolute;
 	top:60px;
 	left:5.5%;
@@ -115,7 +116,7 @@ input[type=text] {
 }
 #loader {
     border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid black; /* Blue */
+    border-top: 16px solid #1A5276; /* Blue */
     border-radius: 50%;
 	position:absolute;
 	left:45%;
@@ -128,12 +129,13 @@ input[type=text] {
 }
 #loading {
 	position:absolute;
-	left:43%;
-	top:57%;
+	left:31%;
+	top:60%;
 	display:none;
-    width: 120px;
-    height: 120px;
+    width: 500px;
+    height: 30px;
 	z-index:5;
+	text-align:center;
 }
 
 @keyframes spin {
@@ -170,11 +172,9 @@ input[type=text] {
     opacity: 0.4;
 }
 #loadtext{
+	color: #1A5276;
 	font-family:monospace;
 	font-size:25px;
-	position:absolute;
-	left:35%;
-	top:65%;
 	z-index:5;
 }
 input.ng-invalid {
