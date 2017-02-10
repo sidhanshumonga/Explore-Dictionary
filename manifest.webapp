@@ -7,9 +7,9 @@
     }
   },
   "appType": "APP",
-  "name": "Search It- App",
+  "name": "Wats my UID?",
   "version": "1.0.0",
-  "description": "To display the name and type of UID",
+  "description": "Search for UID in the system",
   "developer": {
     "name": "Sidhanshu Monga",
     "email": "sidhanshumonga28@gmail.com"

@@ -1,0 +1,80 @@
+{
+  "_args": [
+    [
+      {
+        "name": "leaflet-markercluster",
+        "raw": "leaflet-markercluster",
+        "rawSpec": "",
+        "scope": null,
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/home/harsh/DHIS2_HOME/apps/NIE-app"
+    ]
+  ],
+  "_from": "leaflet-markercluster@latest",
+  "_id": "leaflet-markercluster@0.2.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/leaflet-markercluster",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "leaflet-markercluster",
+    "raw": "leaflet-markercluster",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/leaflet-markercluster/-/leaflet-markercluster-0.2.0.tgz",
+  "_shasum": "ef3417244d9eac680176d807f55e27287a72de30",
+  "_shrinkwrap": null,
+  "_spec": "leaflet-markercluster",
+  "_where": "/home/harsh/DHIS2_HOME/apps/NIE-app",
+  "author": {
+    "name": "David Leaver"
+  },
+  "bugs": {
+    "url": "https://github.com/danzel/Leaflet.markercluster/issues"
+  },
+  "dependencies": {
+    "leaflet-engine": ">=0.4.2"
+  },
+  "description": "Provides Beautiful Animated Marker Clustering functionality for Leaflet",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "ef3417244d9eac680176d807f55e27287a72de30",
+    "tarball": "https://registry.npmjs.org/leaflet-markercluster/-/leaflet-markercluster-0.2.0.tgz"
+  },
+  "homepage": "https://github.com/danzel/Leaflet.markercluster#readme",
+  "keywords": [
+    "leaflet",
+    "maps",
+    "mobile",
+    "marker",
+    "ender"
+  ],
+  "license": "MIT",
+  "main": "leaflet.markercluster-src.js",
+  "maintainers": [
+    {
+      "email": "ivan@sinanimodelucro.org",
+      "name": "joker-x"
+    }
+  ],
+  "name": "leaflet-markercluster",
+  "optionalDependencies": {},
+  "readme": "Leaflet.markercluster\n=====================\n\nProvides Beautiful Animated Marker Clustering functionality for Leaflet\n\n*Requires Leaflet 0.4.2 or newer*\n\n## Using the plugin\nSee the included examples for usage.\n\nThe [realworld example](http://danzel.github.com/Leaflet.markercluster/example/marker-clustering-realworld.388.html) is a good place to start, it uses all of the defaults of the clusterer. \nOr check out the [custom example](http://danzel.github.com/Leaflet.markercluster/example/marker-clustering-custom.html) for how to customise the behaviour and appearance of the clusterer\n\n### Usage\nCreate a new MarkerClusterGroup, add your markers to it, then add it to the map\n\n```javascript\nvar markers = new L.MarkerClusterGroup();\nmarkers.addLayer(new L.Marker(getRandomLatLng(map)));\n... Add more layers ...\nmap.addLayer(markers);\n```\n\n### Defaults\nBy default the Clusterer enables some nice defaults for you:\nshowCoverageOnHover: When you mouse over a cluster it shows the bounds of its markers.\nzoomToBoundsOnClick: When you click a cluster we zoom to its bounds.\nspiderfyOnMaxZoom: When you click a cluster at the bottom zoom level we spiderfy it so you can see all of its markers.\n\nYou can disable any of these as you want in the options when you create the MarkerClusterGroup:\n```javascript\nvar markers = new L.MarkerClusterGroup({ spiderfyOnMaxZoom: false, showCoverageOnHover: false, zoomToBoundsOnClick: false });\n```\n\n### Customising the Clustered Markers\nAs an option to MarkerClusterGroup you can provide your own function for creating the Icon for the clustered markers.\nThe default implementation changes color at bounds of 10 and 100, but more advanced uses may require customising this.\nYou do not need to include the .Default css if you go this way.\nYou are passed a MarkerCluster object, you'll probably want to use getChildCount() or getAllChildMarkers() to work out the icon to show\n\n```javascript\nvar markers = new L.MarkerClusterGroup({ options: {\n\ticonCreateFunction: function(cluster) {\n\t\treturn new L.DivIcon({ html: '<b>' + cluster.getChildCount() + '</b>' });\n\t}\n}});\n```\nCheck out the [custom example](http://danzel.github.com/Leaflet.markercluster/example/marker-clustering-custom.html) for an example of this.\n\n### All Options\nEnabled by default (boolean options):\n* **zoomToBoundsOnClick**: When you mouse over a cluster it shows the bounds of its markers.\n* **showCoverageOnHover**: When you click a cluster we zoom to its bounds.\n* **spiderfyOnMaxZoom**: When you click a cluster at the bottom zoom level we spiderfy it so you can see all of its markers.\n\nOther options\n* **animateAddingMarkers**: If set to true then adding individual markers to the MarkerClusterGroup after it has been added to the map will add the marker and animate it in to the cluster. Defaults to false as this gives better performance when bulk adding markers.\n* **disableClusteringAtZoom**: If set, at this zoom level and below markers will not be clustered. This defaults to disabled. [See Example](http://danzel.github.com/Leaflet.markercluster/example/marker-clustering-realworld-maxzoom.388.html)\n* **maxClusterRadius**: The maximum radius that a cluster will cover from the central marker (in pixels). Default 80. Decreasing will make more smaller clusters.\n* **polygonOptions**: Options to pass when creating the L.Polygon to show the bounds of a cluster\n* **singleMarkerMode**: If set to true, overrides the icon for all added markers to make them appear as a 1 size cluster\n* **spiderfyDistanceMultiplier**: Increase from 1 to increase the distance away from the center that spiderfied markers are placed. Use if you are using big marker icons.\n\n## Events\nIf you register for click, mouseover, etc events just related to Markers in the cluster.\nTo recieve events for clusters listen to 'cluster' + 'eventIWant', ex: 'clusterclick', 'clustermouseover'.\n\nSet your callback up as follows to handle both cases:\n\n```javascript\nmarkers.on('click', function (a) {\n\tconsole.log('marker ' + a.layer);\n});\n\nmarkers.on('clusterclick', function (a) {\n\tconsole.log('cluster ' + a.layer.getAllChildMarkers().length);\n});\n```\n\n## Methods\n\n### Getting the bounds of a cluster\nWhen you recieve an event from a cluster you can query it for the bounds.\nSee [example/marker-clustering-convexhull.html](http://danzel.github.com/Leaflet.markercluster/example/marker-clustering-convexhull.html) for a working example.\n```javascript\nmarkers.on('clusterclick', function (a) {\n\tmap.addLayer(new L.Polygon(a.layer.getConvexHull()));\n});\n```\n\n### Zooming to the bounds of a cluster\nWhen you recieve an event from a cluster you can zoom to its bounds in one easy step.\nSee [marker-clustering-zoomtobounds.html](http://danzel.github.com/Leaflet.markercluster/example/marker-clustering-zoomtobounds.html) for a working example.\n```javascript\nmarkers.on('clusterclick', function (a) {\n\ta.layer.zoomToBounds();\n});\n```\n\n### Adding and removing Markers\naddLayer, removeLayer and clearLayers are supported and they should work for most uses.\n\n### Bulk adding and removing Markers\naddLayers and removeLayers are bulk methods for adding and removing markers and should be favoured over the single versions when doing bulk addition/removal of markers. Each takes an array of markers\n\nIf you are removing a lot of markers it will almost definitely be better to call clearLayers then call addLayers to add the markers you don't want to remove back in. See [#59](https://github.com/danzel/Leaflet.markercluster/issues/59#issuecomment-9320628) for details.\n\n### Other Methods\n````\nhasLayer(layer): Returns true if the given layer (marker) is in the MarkerClusterGroup\nzoomToShowLayer(layer, callback): Zooms to show the given marker (spidifying if required), calls the callback when the marker is visible on the map\naddLayers(layerArray): Adds the markers in the given array from the MarkerClusterGroup in an efficent bulk method.\nremoveLayers(layerArray): Removes the markers in the given array from the MarkerClusterGroup in an efficent bulk method.\n````\n\n## Handling LOTS of markers\nThe Clusterer can handle 10000 or even 50000 markers (in chrome). IE9 has some issues with 50000.\n[realworld 10000 example](http://danzel.github.com/Leaflet.markercluster/example/marker-clustering-realworld.10000.html)\n[realworld 50000 example](http://danzel.github.com/Leaflet.markercluster/example/marker-clustering-realworld.50000.html)\nPerformance optimizations could be done so these are handled more gracefully (Running the initial clustering over multiple JS calls rather than locking the browser for a long time)\n\n### License\n\nLeaflet.markercluster is free software, and may be redistributed under the MIT-LICENSE.\n",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/danzel/Leaflet.markercluster.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.2.0"
+}

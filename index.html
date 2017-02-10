@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp">
+  <head>
+    <title>What's my UID?</title>
+    <meta charset="UTF-8">
+    <script src="angular.min.js"></script>
+    
+
+    <script type="text/javascript" src="scripts/lib/jQuery/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/jQuery/ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/jQuery/jquery.plugin.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/jQuery/jquery.tmpl.js"></script>
+
+    <script type="text/javascript" src="scripts/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link type="text/css" rel="stylesheet"  href="scripts/lib/bootstrap/css/bootstrap.min.css">
+
+
+
+    <script type="text/javascript" src="scripts/lib/commons/dhis2.util.js"></script>
+    <script type="text/javascript" src="scripts/lib/commons/commons.js"></script>
+    <script type="text/javascript" src="scripts/lib/commons/commons.ajax.js"></script>
+    <script type="text/javascript" src="scripts/lib/commons/ouwt/ouwt.js"></script>
+
+
+    <script type="text/javascript" src="scripts/lib/commons/dhis2.angular.filters.js"></script>
+    <script type="text/javascript" src="scripts/lib/commons/dhis2.angular.directives.js"></script>
+    <script type="text/javascript" src="scripts/lib/commons/dhis2.angular.services.js"></script>
+
+    <script type="text/javascript" src="scripts/lib/commons/dhis2.storage.ss.js"></script>
+    <script type="text/javascript" src="scripts/lib/commons/dhis2.storage.ls.js"></script>
+    <script type="text/javascript" src="scripts/lib/commons/dhis2.storage.idb.js"></script>
+    <script type="text/javascript" src="scripts/lib/commons/dhis2.storage.memory.js"></script>
+    <script type="text/javascript" src="scripts/lib/commons/dhis2.storage.js"></script>
+
+    <script type="text/javascript" src="scripts/lib/commons/dhis2.translate.js"></script>
+    <script type="text/javascript" src="scripts/lib/commons/dhis2.menu.js"></script>
+    <script type="text/javascript" src="scripts/lib/commons/dhis2.menu.ui.js"></script>
+
+    <link type="text/css" rel="stylesheet" media="screen" href="scripts/lib/commons/css/menu.css">
+    <link type="text/css" rel="stylesheet" media="screen" href="scripts/lib/commons/css/widgets.css">
+    <link type="text/css" rel="stylesheet" href="scripts/lib/commons/font-awesome/css/font-awesome.min.css"/>
+
+    <link type="text/css" rel="stylesheet" media="screen" href="styles/style.css">
+    <link type="text/css" rel="stylesheet" media="screen" href="styles/main.css">
+
+    <script src="json-formatter.js"></script>
+    <script src="controllerfile.js"></script>
+    <link rel="stylesheet" type="text/css" href="json-formatter.css">
+
+    <style>
+      
+  
+    </style>
+  </head>
+  <body>
+
+    <d2-header-bar></d2-header-bar>
+
+    <div ng-view id ="mainContainer">
+      
+      
+      <div  id="app" ng-controller="testcontroller">
+   	
+	<div id="search">
+          
+          <ng-form name="UidSearch" ng-keyup="$event.keyCode == 13 && submit()">     
+	    <input type="text" name="uid" id= "find" ng-model="uid" ng-minlength="11" 
+		   ng-maxlength="11" placeholder="Enter UID" autofocus required><br>
+            <!-- validating input -->
+	    
+	    <p id="error">
+	      <span ng-show="UidSearch.uid.$error.maxlength">Uid should contain 11 characters.</span>
+	    </p>
+	    
+	    <button ng-click="submit()" name="submit" id="tap" >submit</button>
+	<br><br>
+
+<!-- div to show json response -->
+
+<div id="result">
+  
+  <!-- div to show type and name of uid -->
+  
+  <div id="Type"></div>
+  
+  <!-- div to show loader and contents loading -->
+  
+  <div id="loader"></div>
+  <div id="loading"></div>
+  
+  <p id="data" ng-show="names">
+    <json-formatter  id="format" open="1" json="names"></json-formatter>
+  </p>
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="footer"></div>
+<div id="overlay"></div>
+</body>
+</html>

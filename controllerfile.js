@@ -2,7 +2,7 @@
  * Created by HISP-WS19 on 16-12-2016.
  */
 
-var app = angular.module('testapp',['jsonFormatter']);
+var app = angular.module('testapp',['jsonFormatter','d2HeaderBar']);
 app.controller('testcontroller',function($scope, $http,$timeout, $window){
 		
 		var getUrl = $window.location.href;
