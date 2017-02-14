@@ -94,14 +94,9 @@ app.controller('testcontroller',function($scope, $http,$timeout, $window){
 
 			// validations check
 
- 				 if(input == undefined || input == ""){}
-				
-				else if (input.length < 11 || input.length >11 ) {
-					document.getElementById("find").style.borderColor = "red";
-					document.getElementById("find").style.boxShadow = "0 0 7px red";
-					document.getElementById("error").focus();
-					document.getElementById("error").innerHTML = "*uid must contain 11 characters*";
-				}
+ 				 if(input == undefined || input == ""){
+					  alert("Please enter the valid uid");
+				  }
   
 				else {
 	   				document.getElementById("overlay").style.display = "block";
@@ -114,3 +109,10 @@ app.controller('testcontroller',function($scope, $http,$timeout, $window){
    					 };
 
 			});	
+	$scope.checkIfEnterKeyWasPressed = function($event){
+    	var keyCode = $event.which || $event.keyCode;
+    			if (keyCode === 13) {
+        			submit();
+   				 }
+
+  };
