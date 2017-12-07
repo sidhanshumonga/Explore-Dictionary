@@ -7,9 +7,9 @@
     }
   },
   "appType": "APP",
-  "name": "Wats my UID?",
-  "version": "1.0.0",
-  "description": "Search for UID in the system",
+  "name": "Explore Dictionary",
+  "version": "2.1.0",
+  "description": "Search with UID or name in the whole system",
   "developer": {
     "name": "Sidhanshu Monga",
     "email": "sidhanshumonga28@gmail.com"

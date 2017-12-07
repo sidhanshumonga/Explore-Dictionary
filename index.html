@@ -1,186 +1,152 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="testapp">
-  <head>
-    <title>What's my UID?</title>
-    <meta charset="UTF-8">
-    <script src="angular.min.js"></script>
-    
 
-    <script type="text/javascript" src="scripts/lib/jQuery/jquery.min.js"></script>
-    <script type="text/javascript" src="scripts/lib/jQuery/ui/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="scripts/lib/jQuery/jquery.plugin.min.js"></script>
-    <script type="text/javascript" src="scripts/lib/jQuery/jquery.tmpl.js"></script>
-
-    <script type="text/javascript" src="scripts/lib/bootstrap/js/bootstrap.min.js"></script>
-    <link type="text/css" rel="stylesheet"  href="scripts/lib/bootstrap/css/bootstrap.min.css">
+<head>
+  <title>What's my UID?</title>
+  <meta charset="UTF-8">
+  <script src="angular.min.js"></script>
 
 
+  <script type="text/javascript" src="scripts/lib/jQuery/jquery.min.js"></script>
+  <script type="text/javascript" src="scripts/lib/jQuery/ui/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="scripts/lib/jQuery/jquery.plugin.min.js"></script>
+  <script type="text/javascript" src="scripts/lib/jQuery/jquery.tmpl.js"></script>
 
-    <script type="text/javascript" src="scripts/lib/commons/dhis2.util.js"></script>
-    <script type="text/javascript" src="scripts/lib/commons/commons.js"></script>
-    <script type="text/javascript" src="scripts/lib/commons/commons.ajax.js"></script>
-    <script type="text/javascript" src="scripts/lib/commons/ouwt/ouwt.js"></script>
+  <script type="text/javascript" src="scripts/lib/bootstrap/js/bootstrap.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="scripts/lib/bootstrap/css/bootstrap.min.css">
 
 
-    <script type="text/javascript" src="scripts/lib/commons/dhis2.angular.filters.js"></script>
-    <script type="text/javascript" src="scripts/lib/commons/dhis2.angular.directives.js"></script>
-    <script type="text/javascript" src="scripts/lib/commons/dhis2.angular.services.js"></script>
+  <script type="text/javascript" src="scripts/lib/commons/dhis2.util.js"></script>
+  <script type="text/javascript" src="scripts/lib/commons/commons.js"></script>
+  <script type="text/javascript" src="scripts/lib/commons/commons.ajax.js"></script>
+  <script type="text/javascript" src="scripts/lib/commons/ouwt/ouwt.js"></script>
 
-    <script type="text/javascript" src="scripts/lib/commons/dhis2.storage.ss.js"></script>
-    <script type="text/javascript" src="scripts/lib/commons/dhis2.storage.ls.js"></script>
-    <script type="text/javascript" src="scripts/lib/commons/dhis2.storage.idb.js"></script>
-    <script type="text/javascript" src="scripts/lib/commons/dhis2.storage.memory.js"></script>
-    <script type="text/javascript" src="scripts/lib/commons/dhis2.storage.js"></script>
 
-    <script type="text/javascript" src="scripts/lib/commons/dhis2.translate.js"></script>
-    <script type="text/javascript" src="scripts/lib/commons/dhis2.menu.js"></script>
-    <script type="text/javascript" src="scripts/lib/commons/dhis2.menu.ui.js"></script>
+  <script type="text/javascript" src="scripts/lib/commons/dhis2.angular.filters.js"></script>
+  <script type="text/javascript" src="scripts/lib/commons/dhis2.angular.directives.js"></script>
+  <script type="text/javascript" src="scripts/lib/commons/dhis2.angular.services.js"></script>
 
-    <link type="text/css" rel="stylesheet" media="screen" href="scripts/lib/commons/css/menu.css">
-    <link type="text/css" rel="stylesheet" media="screen" href="scripts/lib/commons/css/widgets.css">
-    <link type="text/css" rel="stylesheet" href="scripts/lib/commons/font-awesome/css/font-awesome.min.css"/>
+  <script type="text/javascript" src="scripts/lib/commons/dhis2.storage.ss.js"></script>
+  <script type="text/javascript" src="scripts/lib/commons/dhis2.storage.ls.js"></script>
+  <script type="text/javascript" src="scripts/lib/commons/dhis2.storage.idb.js"></script>
+  <script type="text/javascript" src="scripts/lib/commons/dhis2.storage.memory.js"></script>
+  <script type="text/javascript" src="scripts/lib/commons/dhis2.storage.js"></script>
 
-    <link type="text/css" rel="stylesheet" media="screen" href="styles/style.css">
-    <link type="text/css" rel="stylesheet" media="screen" href="styles/main.css">
+  <script type="text/javascript" src="scripts/lib/commons/dhis2.translate.js"></script>
+  <script type="text/javascript" src="scripts/lib/commons/dhis2.menu.js"></script>
+  <script type="text/javascript" src="scripts/lib/commons/dhis2.menu.ui.js"></script>
 
-    <script src="json-formatter.js"></script>
-    <script src="controllerfile.js"></script>
-    <link rel="stylesheet" type="text/css" href="json-formatter.css">
+  <link type="text/css" rel="stylesheet" media="screen" href="scripts/lib/commons/css/menu.css">
+  <link type="text/css" rel="stylesheet" media="screen" href="scripts/lib/commons/css/widgets.css">
+  <link type="text/css" rel="stylesheet" href="scripts/lib/commons/font-awesome/css/font-awesome.min.css" />
 
-    <style>
-      #loader {
-  color: #104E8B;
-  font-size: 20px;
-  margin: 100px auto;
-  display: none;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  position: relative;
-  text-indent: -9999em;
-  -webkit-animation: load4 1.3s infinite linear;
-  animation: load4 1.3s infinite linear;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-}
-@-webkit-keyframes load4 {
-  0%,
-  100% {
-    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
-  }
-  12.5% {
-    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-  }
-  25% {
-    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-  }
-  37.5% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
-  }
-  50% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
-  }
-  62.5% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
-  }
-  75% {
-    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
-  }
-  87.5% {
-    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
-  }
-}
-@keyframes load4 {
-  0%,
-  100% {
-    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
-  }
-  12.5% {
-    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-  }
-  25% {
-    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-  }
-  37.5% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
-  }
-  50% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
-  }
-  62.5% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
-  }
-  75% {
-    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
-  }
-  87.5% {
-    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
-  }
-}
-#loading {
-    left:45%;
-    top:50%;
-    position: absolute;
+  <link type="text/css" rel="stylesheet" media="screen" href="styles/style.css">
+  <link type="text/css" rel="stylesheet" media="screen" href="styles/main.css">
 
-}
-input.ng-valid{
-    background-color: lightgreen;
-}
-input.ng-invalid {
-  background-color: white;
-}
+  <script src="json-formatter.js"></script>
+  <script src="controllerfile.js"></script>
+  <link rel="stylesheet" type="text/css" href="json-formatter.css">
 
-  
-    </style>
-  </head>
-  <body>
+  <style>
+    #loader {
+      display: none;
+    }
 
-    <d2-header-bar></d2-header-bar>
+    input.ng-invalid {
+      background-color: white;
+    }
 
-    <div ng-view id ="mainContainer">
-      
-      
-      <div  id="app" ng-controller="testcontroller">
-   	
-	<div id="search">
-          
-          <form name="UidSearch" >     
-	    <input type="text" name="uid" id= "find" ng-model="uid" ng-minlength="11" 
-		   ng-maxlength="11" placeholder="Enter UID" ng-keypress="checkIfEnterKeyWasPressed($event)" style="float:left" autofocus required>
-            <!-- validating input -->
-	    
-	    <p class="error" style="float:left;margin-left:20px;margin-top:7px;">
-	      <span ng-show="UidSearch.uid.$error.maxlength">Uid should contain 11 characters.</span>
-	      <span ng-show="UidSearch.uid.$error.minlength">Uid should contain 11 characters.</span>	   
-      </p>
-	    <br><br><br>
-	    <button ng-click="submit()" name="submit" id="tap" style="float:left" capture-keypress>submit</button></form>
-	<br><br>
+    .customF {
+      width: 25%;
+    }
 
-<!-- div to show json response -->
+    #find,
+    #find2 {
+      background-color: white;
+      margin: 0;
+    }
 
-<div id="result">
-  
-  <!-- div to show type and name of uid -->
-  
-  <div id="Type"></div>
-  
-  <!-- div to show loader and contents loading -->
-  
-  <div id="loader">searching...</div>
-  <div id="loading"></div>
-  
-  <p id="data" ng-show="names">
-    <json-formatter  id="format" open="1" json="names"></json-formatter>
-  </p>
-</div>
+    input.ng-valid {
+      background-color: lightgreen;
+    }
 
-</div>
-</div>
-</div>
+    #Type {
+      font-size: 25px;
+    }
 
-<div id="footer"></div>
-<div id="overlay"></div>
+    #data {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <d2-header-bar></d2-header-bar>
+
+  <div ng-view id="mainContainer">
+
+
+    <div id="app" ng-controller="testcontroller">
+
+      <center>
+        <div id="search">
+
+          <div class="input-group customF">
+            <span class="input-group-addon" id="basic-addon1" name="uid1"><input type="checkbox" aria-label="Checkbox for following text input" ng-model="check1">  Search by UID :</span>
+            <form name="UidSearch">
+              <input type="text" name="uid" id="find" ng-model="uid" ng-minlength="11" ng-disabled="check2 || (check1 && check2)" ng-maxlength="11" class="form-control" placeholder="Uid" aria-describedby="basic-addon1">
+            </form>
+          </div><br>
+
+          <p>OR</p>
+
+          <div class="input-group customF">
+            <span class="input-group-addon" id="basic-addon1" name="uid1"><input type="checkbox" aria-label="Checkbox for following text input" ng-model="check2">  Search by name :</span>
+            <form name="UidSearch">
+              <input type="text" name="namee" id="find2" ng-model="namee" ng-disabled="check1 || (check1 && check2)" class="form-control" placeholder="Name" aria-describedby="basic-addon1">
+            </form>
+          </div>
+          <!-- validating input -->
+
+          <p class="error" style="margin-left:20px;margin-top:5px;">
+            <span ng-show="UidSearch.uid.$error.maxlength">Uid should contain 11 characters.</span>
+            <span ng-show="UidSearch.uid.$error.minlength">Uid should contain 11 characters.</span>
+          </p><br>
+
+          <button type="button" class="btn btn-primary" ng-click="submit()" ng-disabled="(check1 && check2) || (!check1 && !check2)" name="submit" id="tap" capture-keypress>Search</button>
+          <br><br>
+          <div id="loading" style="font:20px"></div>
+
+          <br>
+
+          <!-- div to show json response -->
+
+          <div id="result">
+
+
+
+            <div class="row">
+              <div class="col-lg" width="100%">
+
+                <div id="Type"></div>
+                <table class="reporttable table table-bordered table-hover">
+
+                </table>
+                <div id="loader">searching...</div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </center>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+  <div id="overlay"></div>
+
 </body>
+
 </html>
