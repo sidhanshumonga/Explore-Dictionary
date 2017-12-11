@@ -134,8 +134,8 @@ $scope.submit = function() {
       alert("Please enter the valid uid");
     } else {
       document.getElementById("overlay").style.display = "block";
-      //    document.getElementById("loader").style.display = "block";
-//      document.getElementById("loading").style.display = "block";
+       document.getElementById("loader").style.display = "block";
+    document.getElementById("loading").style.display = "block";
   //    document.getElementById("data").style.display = "none";
       document.getElementById("Type").style.display = "none";
       $('.reporttable tr').remove();
@@ -148,8 +148,8 @@ $scope.submit = function() {
       alert("Please enter the valid uid");
     } else {
       document.getElementById("overlay").style.display = "block";
-      //      document.getElementById("loader").style.display = "block";
-    //  document.getElementById("loading").style.display = "block";
+         document.getElementById("loader").style.display = "block";
+      document.getElementById("loading").style.display = "block";
     //  document.getElementById("data").style.display = "none";
       document.getElementById("Type").style.display = "none";
       $('.reporttable tr').remove();
@@ -171,7 +171,7 @@ $scope.callSchemaEndPoint2 = function(i, dataSchemas, uid, uidFound) {
 
   //terminating recursion (if uid not found in whole json)
   if (i >= dataSchemas.resources.length) {
-    //    document.getElementById("loader").style.display = "none";
+       document.getElementById("loader").style.display = "none";
     document.getElementById("loading").style.display = "none";
     document.getElementById("loading").innerHTML = "";
   //  document.getElementById("data").style.display = "none";
@@ -184,7 +184,7 @@ $scope.callSchemaEndPoint2 = function(i, dataSchemas, uid, uidFound) {
   var j = i - 1;
   //terminating recursion (if uid is found)
   if (uidFound) {
-    //      document.getElementById("loader").style.display = "none";
+       document.getElementById("loader").style.display = "none";
     document.getElementById("loading").style.display = "none";
     document.getElementById("loading").innerHTML = "";
 //    document.getElementById("data").style.display = "block";
