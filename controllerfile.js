@@ -231,7 +231,7 @@ $scope.callSchemaEndPoint2 = function(i, dataSchemas, uid, uidFound) {
 
       }
       $scope.callSchemaEndPoint2(i + 1, dataSchemas, uid, false);
-
+      $(".reporttable").mark(uid);
     })
     .error(function(e, x) {
       // calling same function (sending boolean "false" as uid is not found)
