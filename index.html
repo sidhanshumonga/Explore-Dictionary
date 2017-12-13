@@ -50,134 +50,136 @@
 
 
   <style>
-     /* Absolute Center Spinner */
+    /* Absolute Center Spinner */
 
-     .loading {
-            position: fixed;
-            z-index: 999;
-            height: 2em;
-            width: 2em;
-            overflow: show;
-            margin: auto;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-        }
+    .loading {
+      position: fixed;
+      z-index: 999;
+      height: 2em;
+      width: 2em;
+      overflow: show;
+      margin: auto;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
 
-        /* Transparent Overlay */
+    /* Transparent Overlay */
 
-        .loading:before {
-            content: '';
-            display: block;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
-        }
+    .loading:before {
+      content: '';
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
 
-        /* :not(:required) hides these rules from IE9 and below */
+    /* :not(:required) hides these rules from IE9 and below */
 
-        .loading:not(:required) {
-            /* hide "loading..." text */
-            font: 0/0 a;
-            color: transparent;
-            text-shadow: none;
-            background-color: transparent;
-            border: 0;
-        }
+    .loading:not(:required) {
+      /* hide "loading..." text */
+      font: 0/0 a;
+      color: transparent;
+      text-shadow: none;
+      background-color: transparent;
+      border: 0;
+    }
 
-        .loading:not(:required):after {
-            content: '';
-            display: block;
-            font-size: 10px;
-            width: 1em;
-            height: 1em;
-            margin-top: -0.5em;
-            -webkit-animation: spinner 1500ms infinite linear;
-            -moz-animation: spinner 1500ms infinite linear;
-            -ms-animation: spinner 1500ms infinite linear;
-            -o-animation: spinner 1500ms infinite linear;
-            animation: spinner 1500ms infinite linear;
-            border-radius: 0.5em;
-            -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
-            box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
-        }
+    .loading:not(:required):after {
+      content: '';
+      display: block;
+      font-size: 10px;
+      width: 1em;
+      height: 1em;
+      margin-top: -0.5em;
+      -webkit-animation: spinner 1500ms infinite linear;
+      -moz-animation: spinner 1500ms infinite linear;
+      -ms-animation: spinner 1500ms infinite linear;
+      -o-animation: spinner 1500ms infinite linear;
+      animation: spinner 1500ms infinite linear;
+      border-radius: 0.5em;
+      -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+      box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+    }
 
-        /* Animation */
+    /* Animation */
 
-        @-webkit-keyframes spinner {
-            0% {
-                -webkit-transform: rotate(0deg);
-                -moz-transform: rotate(0deg);
-                -ms-transform: rotate(0deg);
-                -o-transform: rotate(0deg);
-                transform: rotate(0deg);
-            }
-            100% {
-                -webkit-transform: rotate(360deg);
-                -moz-transform: rotate(360deg);
-                -ms-transform: rotate(360deg);
-                -o-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
+    @-webkit-keyframes spinner {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
 
-        @-moz-keyframes spinner {
-            0% {
-                -webkit-transform: rotate(0deg);
-                -moz-transform: rotate(0deg);
-                -ms-transform: rotate(0deg);
-                -o-transform: rotate(0deg);
-                transform: rotate(0deg);
-            }
-            100% {
-                -webkit-transform: rotate(360deg);
-                -moz-transform: rotate(360deg);
-                -ms-transform: rotate(360deg);
-                -o-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
+    @-moz-keyframes spinner {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
 
-        @-o-keyframes spinner {
-            0% {
-                -webkit-transform: rotate(0deg);
-                -moz-transform: rotate(0deg);
-                -ms-transform: rotate(0deg);
-                -o-transform: rotate(0deg);
-                transform: rotate(0deg);
-            }
-            100% {
-                -webkit-transform: rotate(360deg);
-                -moz-transform: rotate(360deg);
-                -ms-transform: rotate(360deg);
-                -o-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
+    @-o-keyframes spinner {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
 
-        @keyframes spinner {
-            0% {
-                -webkit-transform: rotate(0deg);
-                -moz-transform: rotate(0deg);
-                -ms-transform: rotate(0deg);
-                -o-transform: rotate(0deg);
-                transform: rotate(0deg);
-            }
-            100% {
-                -webkit-transform: rotate(360deg);
-                -moz-transform: rotate(360deg);
-                -ms-transform: rotate(360deg);
-                -o-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
-        #loader{
-          display:none;
-        }
+    @keyframes spinner {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    #loader {
+      display: none;
+    }
+
     input.ng-invalid {
       background-color: white;
     }
@@ -203,6 +205,24 @@
     #data {
       margin-top: 20px;
     }
+
+    .cc {
+      display: inline-block !important;
+      padding: 10px !important;
+      margin: 5px !important;
+    }
+
+    #c {
+      padding: 10px;
+      /* overflow set to hidden to hide the expanded text */
+      overflow: hidden;
+      /* all style changes will ease-in-out for 1s */
+      -moz-transition: all 1s ease-in-out;
+      -ms-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      -webkit-transition: all 1s ease-in-out;
+      transition: all 1s;
+    }
   </style>
 </head>
 
@@ -219,18 +239,23 @@
         <div id="search">
 
           <div class="input-group customF">
-            <span class="input-group-addon" id="basic-addon1" name="uid1"><input type="checkbox" aria-label="Checkbox for following text input" ng-model="check1">  Search by UID :</span>
+            <span class="input-group-addon" id="basic-addon1" name="uid1">
+              <input type="checkbox" aria-label="Checkbox for following text input" ng-model="check1"> Search by UID :</span>
             <form name="UidSearch">
-              <input type="text" name="uid" id="find" ng-model="uid" ng-minlength="11" ng-disabled="check2 || (check1 && check2)" ng-maxlength="11" class="form-control" placeholder="Uid" aria-describedby="basic-addon1">
+              <input type="text" name="uid" id="find" ng-model="uid" ng-minlength="11" ng-disabled="check2 || (check1 && check2)" ng-maxlength="11"
+                class="form-control" placeholder="Uid" aria-describedby="basic-addon1">
             </form>
-          </div><br>
+          </div>
+          <br>
 
           <p>OR</p>
 
           <div class="input-group customF">
-            <span class="input-group-addon" id="basic-addon1" name="uid1"><input type="checkbox" aria-label="Checkbox for following text input" ng-model="check2">  Search by name :</span>
+            <span class="input-group-addon" id="basic-addon1" name="uid1">
+              <input type="checkbox" aria-label="Checkbox for following text input" ng-model="check2"> Search by name :</span>
             <form name="UidSearch">
-              <input type="text" name="namee" id="find2" ng-model="namee" ng-disabled="check1 || (check1 && check2)" class="form-control" placeholder="Name" aria-describedby="basic-addon1">
+              <input type="text" name="namee" id="find2" ng-model="namee" ng-disabled="check1 || (check1 && check2)" class="form-control"
+                placeholder="Name" aria-describedby="basic-addon1">
             </form>
           </div>
           <!-- validating input -->
@@ -238,10 +263,13 @@
           <p class="error" style="margin-left:20px;margin-top:5px;">
             <span ng-show="UidSearch.uid.$error.maxlength">Uid should contain 11 characters.</span>
             <span ng-show="UidSearch.uid.$error.minlength">Uid should contain 11 characters.</span>
-          </p><br>
+          </p>
+          <br>
 
-          <button type="button" class="btn btn-primary" ng-click="submit()" ng-disabled="(check1 && check2) || (!check1 && !check2)" name="submit" id="tap" capture-keypress>Search</button>
-          <br><br>
+          <button type="button" class="btn btn-primary" ng-click="submit()" ng-disabled="(check1 && check2) || (!check1 && !check2)"
+            name="submit" id="tap" capture-keypress>Search</button>
+          <br>
+          <br>
           <div id="loading" style="font:20px"></div>
 
           <br>
@@ -254,7 +282,16 @@
 
             <div class="row">
               <div class="col-lg" width="100%">
-
+                <table id="checkboxes" class="table table-bordered table-hover">
+                  <tr class="clickable" style="font:15px;background-color:#dfe9f4;cursor:pointer" data-toggle="collapse" data-target="#c">
+                    <td>Show/Hide Filters</td>
+                  </tr>
+                  <tr class="hiddens collapse" id="c">
+                    <td class="c" style="background-color:#eeeeeecb"></td>
+                  </tr>
+                </table>
+                <br>
+                <br>
                 <div id="Type"></div>
                 <table class="reporttable table table-bordered table-hover">
 
