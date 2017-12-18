@@ -207,9 +207,9 @@ app.controller('testcontroller', function ($scope, $http, $timeout, $window) {
 
         $scope.namess = response;
         document.getElementById("Type").style.display = "block";
-        var row = "<div class='checkbox cc'><label><input type='checkbox' value='" + dataSchemas.resources[i].displayName + "'>" + dataSchemas.resources[i].displayName + "</label></div>";
+        var row = "<div class='checkbox cc'><label><input type='checkbox' id='" + dataSchemas.resources[i].displayName + "'>" + dataSchemas.resources[i].displayName + "</label></div>";
         $('.c').append(row);
-        var elm = '<tr style="font:15px;background-color:#f5f5f5"><td colspan="4" id="' + dataSchemas.resources[i].displayName + '"><b>UID Type : ' + dataSchemas.resources[i].displayName + '</b></td></tr>';
+        var elm = '<table id="' + dataSchemas.resources[i].displayName + '" class="table table-bordered table-hover"><tr style="font:15px;background-color:#f5f5f5"><td colspan="4" id="' + dataSchemas.resources[i].displayName + '"><b>UID Type : ' + dataSchemas.resources[i].displayName + '</b></td></tr>';
 
         elm = elm + '<tr style="background-color:#dfe9f4"><th>Uid</th><th>Name</th><th>Code</th><th>Short Name</th></tr>';
 
@@ -225,7 +225,7 @@ app.controller('testcontroller', function ($scope, $http, $timeout, $window) {
           elm = elm + '<tr class="info"><td>' + response[endPointName][p].id + '</td><td>' + response[endPointName][p].displayName + '</td><td>' + code + '</td><td>' + shortname + '</td></tr>';
 
         }
-        $('.reporttable').append(elm);
+        $('.reporttable').append(elm + "</table>");
 
       }
       $scope.callSchemaEndPoint2(i + 1, dataSchemas, uid, false);
