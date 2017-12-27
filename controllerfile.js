@@ -9,6 +9,19 @@ app.controller('testcontroller', function ($scope, $http, $timeout, $window) {
   var urlPart = getUrl.split('=');
   var urlUid = urlPart[1];
 
+
+  $scope.showHide = function (value) {
+    if (document.getElementById(value).style.display == "block") {
+      document.getElementById(value).style.display == "none";
+    }
+    else {
+      document.getElementById(value).style.display == "block"
+    }
+  };
+  $(".checkboxx").change(function () {
+    alert("Handler for .change() called.");
+  });
+
   $scope.getSchemas = function (input, x) {
 
     if (x == 1) {
@@ -207,7 +220,7 @@ app.controller('testcontroller', function ($scope, $http, $timeout, $window) {
 
         $scope.namess = response;
         document.getElementById("Type").style.display = "block";
-        var row = "<div class='checkbox cc'><label><input type='checkbox' id='" + dataSchemas.resources[i].displayName + "'>" + dataSchemas.resources[i].displayName + "</label></div>";
+        var row = "<div class='checkbox cc'><label><input type='checkbox' class='checkboxx' id='" + dataSchemas.resources[i].displayName + "'>" + dataSchemas.resources[i].displayName + "</label></div>";
         $('.c').append(row);
         var elm = '<table id="' + dataSchemas.resources[i].displayName + '" class="table table-bordered table-hover"><tr style="font:15px;background-color:#f5f5f5"><td colspan="4" id="' + dataSchemas.resources[i].displayName + '"><b>UID Type : ' + dataSchemas.resources[i].displayName + '</b></td></tr>';
 
@@ -236,6 +249,8 @@ app.controller('testcontroller', function ($scope, $http, $timeout, $window) {
       });
 
   }
+
+
 
   $scope.submit2 = function () {
 
