@@ -1,4 +1,4 @@
-# Whats my UID? For DHIS2
+# Explore-Dictionary For DHIS2
 
 Stuck with a UID and don't know what Meta data is stands for? Use this app to find out.
 
